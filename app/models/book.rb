@@ -4,7 +4,7 @@ class Book < ApplicationRecord
  belongs_to :user
 
  validates :title, presence: :ture
- validates :option, presence: :ture
+ validates :body, presence: :ture
 
  def get_image
     unless image.attached?
