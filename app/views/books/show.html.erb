@@ -1,9 +1,20 @@
-<%= render 'books/list', book: @book %>
+<% if flash[:notice] %>
+    <div class="flash">
+         <%= flash[:notice] %>
+    </div>
+<% end %>
 
-<div class="col-md-8 offset-md-1">
-  <h2>Book detail</h2>
-  <table class="table">
-  <tbody><tr>
+<div class="container">
+  <div class="row">
+
+  <div class="col-md-3">
+   <%= render 'books/list', user: @user, books: @book %>
+  </div>
+
+  <div class="col-md-8 offset-md-1">
+   <h2>Book detail</h2>
+   <table class="table">
+   <tbody><tr>
 
     <td>
      <%= link_to @user_show_path do %>
@@ -20,10 +31,14 @@
       <%= @book.introduction %>
     </td>
     <td>
-     <%= f.submit "Edit", class:"btn btn-sm btn-success edit_book_36316" %>
+     <%= link_to "Edit",book_path(@book.id), class:"btn btn-sm btn-success edit_book_36316" %>
     </td>
     <td>
-     <%= f.submit "Destroy",data-confirm:"本当に消しますか？", class:"btn btn-sm btn-danger destroy_book_36316"  %>
+      <!--f.submit "Destroy",data-confirm:"本当に消しますか？", class:"btn btn-sm btn-danger destroy_book_36316"  %>-->
     </td>
-   </tbody></table>
+   </tbody>
+   </table>
+  </div>
+
+  </div>
 </div>
