@@ -1,15 +1,15 @@
-  <div class="col-md-3">
-   <% if flash[:notice] %>
-    <div class="flash">
-         <%= flash[:notice] %>
-    </div>
-   <% end %>
-
 <div class="container">
-  <div class="row">
 
-  <%= render 'books/list', user: @user, books: @book %>
-  </div>
+ <p><% if flash[:notice] %>
+   <div class="flash">
+     <%= flash[:notice] %>
+   </div>
+ <% end %></p>
+
+  <div class="row">
+   <div class="col-md-3">
+   <%= render 'books/list', user: @user, books: @book %>
+   </div>
 
    <div class="col-md-8 offset-md-1">
     <h2>Books</h2>
@@ -19,7 +19,7 @@
       <tr>
       <th></th>
       <th>Title</th>
-      <th>Opinion</th>
+      <th>Option</th>
       <th colspan="3"></th>
       </tr>
      </thead>

@@ -1,6 +1,12 @@
 <div class="container">
-<div class="row">
 
+  <p><% if flash[:notice] %>
+   <div class="flash">
+     <%= flash[:notice] %>
+   </div>
+  <% end %></p>
+
+<div class="row">
  <div class="col-md-3">
   <%= render 'books/list', user: @user, books: @book %>
  </div>

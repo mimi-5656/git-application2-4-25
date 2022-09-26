@@ -1,8 +1,24 @@
-<p id="notice"></p>
-
 <div class="container">
-  <div class="row">
 
+ <p><% if flash[:notice] %>
+   <div class="flash">
+     <%= flash[:notice] %>
+   </div>
+ <% end %></p>
+
+    <% if @book.errors.any? %>
+     <div id="error_explanation">
+      <h2><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+     </div>
+    <% end %>
+
+
+  <div class="row">
   <div class="col-md-3">
    <%= render 'books/list', user: @user, books: @book %>
   </div>
